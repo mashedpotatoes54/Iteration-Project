@@ -14,17 +14,20 @@
   "keywords": [],
   "author": "Liam Jeon",
   "contributors": [
-    "Jackie Nguyen",
     "Chihiro Shibayama Snider",
-    "Andy Oh",
     "Jonathan Fangon"
   ],
   "license": "ISC",
   "dependencies": {
+    "@chakra-ui/react": "^2.4.1",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "axios": "^1.1.3",
     "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "framer-motion": "^7.6.9",
     "mongoose": "^6.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
