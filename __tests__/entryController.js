@@ -1,5 +1,5 @@
-const entryController = require('../server/controllers/entryController');
+// const entryController = require('../server/controllers/entryController');
 
-describe('getEntries', () => {
-    const testData = [{}]
-})
+// xdescribe('getEntries', () => {
+//     const testData = [{}]
+// })
