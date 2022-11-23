@@ -4,16 +4,25 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
+  let myState;
   switch(action.type) {
+    case 'DELETE_ENTRY':
+      
+      myState = {
+        entries: state.entries.filter((entry) => entry._id !== action.payload)  
+      }
+      return myState;
     case 'GET_ENTRIES':
-      let myState = {
+      myState = {
         entries: action.payload
       }
-      console.log(myState.entries);
       return myState;
-    case 'CREATE_TASK':
-      return [...entries, action.payload];
+    case 'CREATE_ENTRY':
+      myState = {
+        entries: [...state.entries, action.payload],
+      }
+      return myState;
     default:
       return state;
   }
-}
+} 

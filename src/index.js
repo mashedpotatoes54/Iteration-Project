@@ -18,7 +18,7 @@ import './styles/index.css';
 import { Provider } from 'react-redux';
 import { configureStore, compose, applyMiddleware } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
-
+import { ChakraProvider } from '@chakra-ui/react'
 
 import App from './components/App.jsx'
 
@@ -29,7 +29,7 @@ const store = configureStore({reducer: reducers} , compose(applyMiddleware(thunk
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App/>
+    element: <Auth/>
     // element: <Auth />,  
   },
   {
@@ -46,14 +46,16 @@ const router = createBrowserRouter([
   },
   {
     path:'/home',
-    element: <JournalEntryContainer />
+    element: <App />
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <Provider store = {store}>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ChakraProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ChakraProvider>
   </Provider>
 );
