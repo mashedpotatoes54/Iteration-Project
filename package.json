@@ -10,7 +10,7 @@
     "build": "webpack --mode development",
     "dev:all": "concurrently \"nodemon server/server.js\" \"npm start --hot\"",
     "start:prod": "nodemon server/server.js",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "keywords": [],
   "author": "Liam Johnson",
@@ -24,12 +24,14 @@
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@testing-library/react": "^13.4.0",
     "axios": "^1.1.3",
     "cors": "^2.8.5",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "framer-motion": "^7.6.9",
+    "jest-environment-jsdom": "^29.3.1",
     "mongoose": "^6.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
