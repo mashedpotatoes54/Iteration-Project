@@ -13,7 +13,7 @@ const JournalEntry = (prop) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     axios.delete(`http://localhost:3000/entry/deleteEntry/${prop.entry._id}`)
-      .then((res) => dispatch({action: 'DELETE_ENTRY', payload: res.data}))
+      .then((res) => )
   }
 
   

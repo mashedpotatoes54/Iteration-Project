@@ -42,6 +42,9 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devServer: {
     host: 'localhost',
     hot: true,
