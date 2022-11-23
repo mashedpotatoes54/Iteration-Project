@@ -3,15 +3,17 @@ import axios from 'axios'
 import { Card, CardHeader, CardBody, CardFooter, Button } from '@chakra-ui/react'
 import { format, compareAsc } from 'date-fns'
 
+import { useDispatch } from 'react-redux'
+
 const JournalEntry = (prop) => {
   // const date = format(new Date(prop.entry.date))
   // console.log(date);
-  console.log(prop);
   // have onclick function here
   // onclick will send delete request to server which will find one and delete this entry
+  const dispatch = useDispatch();
   const handleClick = () => {
     axios.delete(`http://localhost:3000/entry/deleteEntry/${prop.entry._id}`)
-      .then((res) => console.log('we deleted', res.data))
+      .then((res) => dispatch({action: 'DELETE_ENTRY', payload: res.data}))
   }
 
   

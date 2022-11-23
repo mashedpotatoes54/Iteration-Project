@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import { Card } from '@chakra-ui/react'
+import { createEntry } from '/src/actions/actionDispatch.js';
+import { useDispatch } from 'react-redux'
 
 const JournalForm = () => {
   const [entryData, setEntryData] = useState({
     date: '', moodScaler: '', iLearned: ''
   })
-
+  const dispatch = useDispatch();
 
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      axios.post('http://localhost:3000/entry/createEntry', entryData)
-        .then((res) => console.log(res.data))
+      dispatch(createEntry(entryData))
     }
 
     return (
