@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --mode development --hot",
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "dev:all": "concurrently \"nodemon server/server.js\" \"npm start --hot\"",
     "start:prod": "nodemon server/server.js",
     "test": "jest"
