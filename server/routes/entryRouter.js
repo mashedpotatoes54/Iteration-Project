@@ -19,7 +19,7 @@ entryRouter.get('/getEntries',
 entryRouter.delete('/deleteEntry/:id', 
     entryController.deleteEntry,
     (req, res) => {
-        return res.status(200).json(res.locals.deleted);
+        return res.status(200).json({success: 'sucessfully deleted'});
     }
 )
 

@@ -15,15 +15,26 @@ import { AuthProvider } from './context/AuthContext.jsx';
 import JournalEntryContainer from './components/journal/JournalEntryContainer.jsx';
 import './styles/index.css';
 
-
+import { Provider } from 'react-redux';
+import { configureStore, compose, applyMiddleware } from '@reduxjs/toolkit'
+import thunk from 'redux-thunk'
+import { ChakraProvider } from '@chakra-ui/react'
 
 import App from './components/App.jsx'
+
+import reducers from './reducers/combiner';
+
+const store = configureStore({reducer: reducers} , compose(applyMiddleware(thunk)))
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App/>
+    element: <Auth/>
     // element: <Auth />,  
+  },
+  {
+    path: '/auth',
+    element: <Auth />
   },
   {
     path: '/login',
@@ -35,12 +46,16 @@ const router = createBrowserRouter([
   },
   {
     path:'/home',
-    element: <JournalEntryContainer />
+    element: <App />
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <AuthProvider>
-    <RouterProvider router={router} />
-  </AuthProvider>
+  <Provider store = {store}>
+    <ChakraProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ChakraProvider>
+  </Provider>
 );
