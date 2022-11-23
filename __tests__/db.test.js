@@ -34,11 +34,11 @@ describe('entry model test', () => {
     });
 
     // test delete function
-    // it('delete an entry successfully', async () => {
-    //     const entry = new entryModel(entryData);
-    //     const savedEntry = await entry.save();
-    //     const deleted = await entryModel.findOneAndDelete({_id: savedEntry._id});
-    //     expect(savedEntry).toBe(deleted);
-    // })
+    it('delete an entry successfully', async () => {
+        const entry = new entryModel(entryData);
+        const savedEntry = await entry.save();
+        const deleted = await entryModel.findOneAndDelete({_id: savedEntry._id});
+        expect(savedEntry._id).toEqual(deleted._id);
+    })
 });
 //expect(typeof value).toBe('number')
