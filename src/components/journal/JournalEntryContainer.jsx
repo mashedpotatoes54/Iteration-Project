@@ -21,8 +21,8 @@ const JournalEntryContainer = () => {
   // iterate through the array we get and render component for each iteration
   // pass down data from get request as prop to child component(<JournalEntry/>)
   return (
-    <HStack spacing = '50px'>
-      <SimpleGrid columns = {2} spacing = {3}>
+    <HStack spacing = '50px' bg = '#fffff2'>
+      <SimpleGrid columns = {3} spacing = {3}>
         {
           myEntries.map((entry) => (
             // <h1>{entry.date}</h1>

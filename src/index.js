@@ -21,7 +21,7 @@ import thunk from 'redux-thunk'
 import { ChakraProvider } from '@chakra-ui/react'
 
 import App from './components/App.jsx'
-
+import Charts from './components/charts/LineChart.jsx';
 import reducers from './reducers/combiner';
 
 const store = configureStore({reducer: reducers} , compose(applyMiddleware(thunk)))
@@ -45,8 +45,12 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path:'/home',
+    path:'/login/home',
     element: <App />
+  },
+  {
+    path:'/login/home/chart',
+    element: <Charts/>
   }
 ]);
 
