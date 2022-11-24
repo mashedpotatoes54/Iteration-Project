@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Center, Button, VStack, Card, Input, Heading} from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const handleLogin = async (e) => {
@@ -39,9 +41,57 @@ const Login = () => {
       console.log(error);
     }
   };
-
+  const [accountInfo, setAccountInfo] = useState({
+    username: '', password: ''
+  });
+  const isErrorUsername = (accountInfo.username === '')
+  const isErrorPassword = (accountInfo.password === '')
   return (
-    <div>
+    <Center minHeight = '100vh' bg = '#fffff2'>
+      <VStack spacing = {8}>
+        <Heading>Login Here</Heading>
+        <Card minWidth = '300px' maxHeight = '500px' padding = {5}>
+          <VStack spacing = {3}>
+            <FormControl isInvalid>
+              <FormLabel>
+                Email
+              </FormLabel>
+              <Input type = 'email' value = {accountInfo.username}placeholder = 'email...' onChange = {(e) => {setAccountInfo({...accountInfo, username: e.target.value})}}/>
+              {!isErrorUsername ? (
+                <FormHelperText>
+                  Enter your Email
+                </FormHelperText>
+              ): (
+                <FormErrorMessage>Email is required.</FormErrorMessage>
+              )}
+              <FormLabel>
+                Password
+              </FormLabel>
+              <Input type = 'password' value = {accountInfo.password}placeholder = 'password...' onChange = {(e) => {setAccountInfo({...accountInfo, password: e.target.value})}}/>
+              {!isErrorPassword ? (
+                <FormHelperText>
+                  Enter your Password
+                </FormHelperText>
+              ): (
+                <FormErrorMessage>Password is required.</FormErrorMessage>
+              )}
+            </FormControl>
+            <Button variant = 'solid' bg = 'lightpink' color = '#232b2b'>
+               <Link to="home">Log In</Link> 
+               </Button>
+          </VStack>
+              
+        </Card>
+        <Button variant = 'ghost'>
+          <Link to="signup">Sign up</Link>
+        </Button>
+      </VStack>
+    </Center>
+  );
+};
+
+export default Login;
+{/* <div>
       <h2>Login</h2>
       <form>
         <div>
@@ -58,8 +108,4 @@ const Login = () => {
         </div>
         <button onClick={handleLogin}>Login</button>
       </form>
-    </div>
-  );
-};
-
-export default Login;
+    </div> */}
