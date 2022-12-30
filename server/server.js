@@ -46,8 +46,8 @@ app.use(express.static(path.join(__dirname, '../src/index.html')));
 // auth router
 // entry router
 
-app.use('/api/auth', authRouter);
-app.use('/api/entry', entryRouter);
+app.use('/auth', authRouter);
+app.use('/entry', entryRouter);
 
 // catch all
 app.use((req, res) => res.status(404).send('Page not found'));
@@ -67,7 +67,7 @@ app.use((err, req, res, next) => {
 // starting server
 app.listen(PORT, () => {
   console.log(
-    `Server listening on port: ${PORT}! Welcome to Andy, Chihiro, Jackie, Jonathan and Liam's Project`
+    `Server listening on port: ${PORT}!`
   );
 });
 
